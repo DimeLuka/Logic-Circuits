@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ЛОГИЧКИ КОЛА</title>
+    <style>
+      body{
+        background-color: lightblue;
+      }
+      h1{
+        text-align: center;
+      }
+      .AND{
+        position: absolute;
+        top: 122px;
+        left: 185px;
+        width: 122px;
+        height: 69px;
+      }
+      .NAND{
+        position: absolute;
+        top: 145px;
+        left: 361px;
+        width: 30px;
+        height: 19px;
+      }
+      .OR{
+        position: absolute;
+        top: 165px;
+        left: 361px;
+        width: 30px;
+        height: 19px;
+      }
+      .NOR{
+        position: absolute;
+        top: 185px;
+        left: 361px;
+        width: 30px;
+        height: 19px;
+      }
+      .XOR{
+        position: absolute;
+        top: 205px;
+        left: 361px;
+        width: 30px;
+        height: 19px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ЛОГИЧКИ КОЛА</h1>
+    <label><b>ОДБЕРИ ЛОГИЧКИ КОЛО:</b></label>
+    <select id="gate">
+      <option value="">ОДБЕРЕТЕ</option>
+      <option value="AND">И</option>
+      <option value="OR">ИЛИ</option>
+      <option value="NAND">НИ</option>
+      <option value="NOR">НИЛИ</option>
+      <option value="XOR">ЕКСНИЛИ</option>
+    </select>
+    <br>
+    <br>
+    <label><b>ВЛЕЗ 1:</b></label>
+    <select id="input1">
+      <option value="">ОДБЕРЕТЕ</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+    </select>
+    <br>
+    <br>
+    <label><b>ВЛЕЗ 2:</b></label>
+    <select id="input2">
+      <option value="">ОДБЕРЕТЕ</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="calculate()">ПРЕСМЕТАЈ</button>
+    <br>
+    <br>
+    <label><b>РЕЗУЛТАТ:</b></label>
+    <span id="output"></span>
+    <script>
+      function calculate() {
+        var gate = document.getElementById("gate").value;
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var output;
+        input1 = parseInt(input1);
+        input2 = parseInt(input2);
+        switch (gate) {
+          case "AND":
+            output = (input1 === 1 && input2 === 1) ? 1 : 0;
+            break;
+          case "OR":
+            output = (input1 === 1 || input2 === 1) ? 1 : 0;
+            break;
+          case "XOR":
+            output = (input1 === 1 && input2 === 0) || (input1 === 0 && input2 === 1) ? 1 : 0;
+            break;
+          case "NAND":
+            output = (input1 === 1 && input2 === 1) ? 0 : 1;
+            break;
+          case "NOR":
+            output = (input1 === 1 && input2 === 1) ? 0 : 1;
+            break;
+          case "NOR":
+            output = (input1 === 1 || input2 === 1) ? 0 : 1;
+            break;
+          default:
+            output = "МОРА ДА ОДБЕРЕТЕ ЛОГИЧКО КОЛО";
+        }
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+    <br>
+    <br>
+    <img class="AND" src="AND.jpg">
+    <img class="NAND" src="OR.jpg">
+    <img class="OR" src="NAND.jpg">
+    <img class="NOR" src="NOR.jpg">
+    <img class="XOR" src="XOR.jpg">
+    
+  </body>
+</html>
